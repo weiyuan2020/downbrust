@@ -1,0 +1,9 @@
+0.0      // dbPosP[0]  // 涡环中心位置
+0.0      // dbPosP[1]
+-610.0   // dbPosP[2]
+0.0      // dbAtt[0]  // 涡环角度
+0.0      // dbAtt[1]
+0.0      // dbAtt[2]
+458.0    // dbCoreRadius 涡丝半径
+915.0    // dbRingVortex 涡环半径
+10.0     // WZREF     // 涡环中心速度 参考值
