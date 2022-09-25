@@ -90,6 +90,7 @@ int downbrust::GetPlaneSpd(string inputfilename, string outputfilename) {
   for (int xIdx = 0; xIdx < xDim; xIdx++) {
     for (int zIdx = 0; zIdx < zDim; zIdx++) {
       positionVec << xArr[xIdx], ypos, -zArr[zIdx];
+      // positionVec << ypos, xArr[xIdx], -zArr[zIdx];
       SetcgPos(positionVec);
       GetcgSpd(&veloVec);
       out << std::setprecision(8);
@@ -125,13 +126,15 @@ int downbrust::calculateSpd() {
   MATH::ElrangToDcm21(213)(dbAtt, &matp);  // prime vortex: theta -> phi
   //   MATH::ElrangToDcm21(213)(-dbAtt, &matm);  // mirror vortex: -theta->-phi
   matm = matp.transpose();
+
   cg2dbPos = matp * (arcftCGPos - dbPosP);
   double XCGDBC = cg2dbPos[0];
   double YCGDBC = cg2dbPos[1];
+  double ZCGDBC = cg2dbPos[2];
   double RVAXCG = sqrt(SQ(XCGDBC) + SQ(YCGDBC));
 
   double WX, WY;
-  double R1PSML = sqrt(SQ(HGCG - HGVORT) + SQ(RVAXCG - RDVORT));
+  double R1PSML = sqrt(SQ(ZCGDBC) + SQ(RVAXCG - RDVORT));
   if (RVAXCG <= 1e-3) {
     WX = 0.0;
     WY = 0.0;

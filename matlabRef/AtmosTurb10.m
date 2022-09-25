@@ -17,6 +17,7 @@ function out=AtmosTurb10(in)
 % % Wxp指代上涡环，wxl指代下涡环速度.
 %% 流场初始化
 % in=[600 0 -400];
+% in=[900    0 -360];
 
 x0=in(1);
 y0=in(2);
@@ -34,7 +35,7 @@ z_vor=-H;%%涡环中心位置
 %% 旋转矩阵
 % 默认值设为0
 psi=0;
-theta=0;%pi/12;
+theta=pi/12;
 Lphi=[1     0           0;
     0     cos(psi)    sin(psi);
     0     -sin(psi)   cos(psi)];

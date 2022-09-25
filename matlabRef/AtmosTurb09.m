@@ -34,7 +34,7 @@ z_vor=-H;%%涡环中心位置
 %% 旋转矩阵
 % 默认值设为0
 psi=0;
-theta=0;%pi/12;
+theta=pi/12;
 Lphi=[1     0           0;
     0     cos(psi)    sin(psi);
     0     -sin(psi)   cos(psi)];

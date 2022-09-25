@@ -20,7 +20,7 @@ int main() {
   //   test.Init(Array);
   test.Init("../input/ConfigData.txt");
   double x = 900;
-  double z = -600;
+  double z = -360;
   Vector3d pos;
   pos << x, 0.0, z;
   test.SetcgPos(pos);
